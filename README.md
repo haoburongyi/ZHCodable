@@ -9,17 +9,24 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
-
-## Installation
-
 ZHCodable is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ZHCodable'
+pod 'ZHCodable',:git =>"https://github.com/haoburongyi/ZHCodable.git"
 ```
 
+## Sample Code
+
+### Deserialization
+```struct Student: ZHCodable {
+    var name: String?
+    var age: Int?
+    var weight: Float? = 0
+    var school: [School]? = []
+}
+
+```
 ## Author
 
 hao, manonghao@gmail.com
