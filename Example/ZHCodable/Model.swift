@@ -9,26 +9,20 @@
 import Foundation
 import ZHCodable
 
+// class School: ZHCodable {
 struct School: ZHCodable {
     var name: String? = ""
     var address: String? = ""
 }
 
+// class Student: ZHCodable {
 struct Student: ZHCodable {
     var name: String?
     var age: Int?
     var weight: Float? = 0
     var school: [School]? = []
-    
-  
 }
 
-extension ZHCodable {
-    
-//    static var zh: ZHCodableWrapper<Self> {
-//        get { return ZHCodableWrapper(nil) }
-//    }
-}
 /* 自定义字段
  * 原理：
  * 在编译代码时根据类型的属性，自动生成了一个 CodingKeys 的枚举类型定义
@@ -38,6 +32,7 @@ extension ZHCodable {
  * 两个函数的具体实现，最终完成了整个协议的实现
  * 我们自己实现 CodingKeys 枚举，编译时就会直接使用我们自己实现的枚举
  */
+// class Person: ZHCodable {
 struct Person: ZHCodable {
     
     var firstName: String?
