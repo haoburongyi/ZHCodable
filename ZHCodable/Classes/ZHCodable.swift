@@ -20,7 +20,7 @@ public struct ZHCodableWrapper<Base> {
 
 public protocol ZHCodable: Codable {}
 
-extension ZHCodable {
+public extension ZHCodable {
     
     var zh: ZHCodableWrapper<Self> {
         get { return ZHCodableWrapper(self) }
@@ -32,7 +32,7 @@ extension ZHCodable {
 }
 
 // MARK: - 字典、json转模型
-extension ZHCodableWrapper where Base: ZHCodable {
+public extension ZHCodableWrapper where Base: ZHCodable {
     
     // json 转模型
     func deserialize(_ json: String) -> Base? {
@@ -76,7 +76,7 @@ extension ZHCodableWrapper where Base: ZHCodable {
 }
 
 // MARK: - 模型转字典、json
-extension ZHCodableWrapper where Base: ZHCodable {
+public extension ZHCodableWrapper where Base: ZHCodable {
     
     // 模型转字典
     func toDict() -> [String : Any]? {
@@ -115,7 +115,7 @@ extension ZHCodableWrapper where Base: ZHCodable {
 
 // MARK: - String
 extension ZHCodableString: ZHCodable {}
-extension ZHCodableWrapper where Base == ZHCodableString {
+public extension ZHCodableWrapper where Base == ZHCodableString {
     func toDict() -> [String : Any]? {
         guard let base = base else {
             print("String 转字典 base 为空")
@@ -142,7 +142,7 @@ public struct ZHCodableArrayWrapper<Base, Element> {
     }
 }
 
-extension ZHCodableArray where Element: ZHCodable {
+public extension ZHCodableArray where Element: ZHCodable {
     var zh: ZHCodableArrayWrapper<Self, Element> {
         get {
             return ZHCodableArrayWrapper(self)
@@ -156,7 +156,7 @@ extension ZHCodableArray where Element: ZHCodable {
 }
 
 // MARK: - 数组方法
-extension ZHCodableArrayWrapper where Element: ZHCodable {
+public extension ZHCodableArrayWrapper where Element: ZHCodable {
     
     // 数组实例转 json
     func toJSONString() -> String? {
