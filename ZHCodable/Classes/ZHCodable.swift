@@ -35,8 +35,8 @@ public extension ZHCodable {
 public extension ZHCodableWrapper where Base: ZHCodable {
     
     // json 转模型
-    func deserialize(_ json: String) -> Base? {
-        guard let data = json.data(using: .utf8) else { return nil }
+    func deserialize(_ json: String?) -> Base? {
+        guard let data = json?.data(using: .utf8) else { return nil }
         do {
             return try decoder.decode(Base.self, from: data)
         } catch {
@@ -47,7 +47,8 @@ public extension ZHCodableWrapper where Base: ZHCodable {
     }
     
     // 字典转模型
-    func deserialize(_ dict: [String : Any]) -> Base? {
+    func deserialize(_ dict: [String : Any]?) -> Base? {
+        guard let dict = dict else { return nil }
         do {
             let opt: JSONSerialization.WritingOptions
             if #available(iOS 13.0, *) {
@@ -65,7 +66,8 @@ public extension ZHCodableWrapper where Base: ZHCodable {
     }
     
     // data 转模型
-    func deserialize(_ data: Data) -> Base? {
+    func deserialize(_ data: Data?) -> Base? {
+        guard let data = data else { return nil }
         do {
             return try decoder.decode(Base.self, from: data)
         } catch {
