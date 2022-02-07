@@ -38,6 +38,8 @@ struct Person: ZHCodable {
     var firstName: String?
     var age: Int?
     
+    var weight: CGFloat = 50// 如果我们需要忽略该属性，在下方 enum CodingKeys 枚举中不填写 weight 字段
+    
     // 自定义实现 CodingKeys 枚举，需要自定义的枚举赋值，如 "first_name"，不需要自定义的枚举也要进行 case，如 case age，我们自定义实现了枚举，系统就会使用我们实现的枚举，而不会继续生成枚举，如果我没不写 case age，在 decode 时 age 将无法进行赋值
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"// 后台返回字段为 first_name
