@@ -36,7 +36,8 @@ struct Student: ZHCodable {
 struct Person: ZHCodable {
     
     var firstName: String?
-    var age: Int?
+    var age: ZHNumber?// 不确定后台返回 float、double、int 还是 string 的时候用 ZHNUmber
+    var isStudent: ZHBoolean?// 不确定后台返回 true、false 还是 0、1 的时候用 ZHBoolean
     
     var weight: CGFloat = 50// 如果我们需要忽略该属性，在下方 enum CodingKeys 枚举中不填写 weight 字段
     

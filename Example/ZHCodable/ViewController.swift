@@ -92,7 +92,9 @@ class ViewController: UIViewController {
         // 自定义字段
         let personDict: [String : Any] = ["first_name" : "zhang", "age" : 10]
         let person = Person.zh.deserialize(personDict)
-        printLog("person.age: \(person?.age ?? 0), person.firstName: \(person?.firstName ?? "none")")
+        printLog("person.age: \(person?.age?.intValue ?? 0), person.firstName: \(person?.firstName ?? "none")")
+        printLog(person?.age?.stringValue)
+        printLog(person?.age?.doubleValue)
     }
 
     override func didReceiveMemoryWarning() {
