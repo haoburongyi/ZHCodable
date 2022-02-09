@@ -35,7 +35,7 @@ public extension ZHCodable {
 public extension ZHCodableWrapper where Base: ZHCodable {
     
     // json 转模型
-    func deserialize(_ json: String?) -> Base? {
+    func deserialize(from json: String?) -> Base? {
         guard let data = json?.data(using: .utf8) else { return nil }
         do {
             return try decoder.decode(Base.self, from: data)
@@ -47,7 +47,7 @@ public extension ZHCodableWrapper where Base: ZHCodable {
     }
     
     // 字典转模型
-    func deserialize(_ dict: [String : Any]?) -> Base? {
+    func deserialize(from dict: [String : Any]?) -> Base? {
         guard let dict = dict else { return nil }
         do {
             let opt: JSONSerialization.WritingOptions
@@ -66,7 +66,7 @@ public extension ZHCodableWrapper where Base: ZHCodable {
     }
     
     // data 转模型
-    func deserialize(_ data: Data?) -> Base? {
+    func deserialize(from data: Data?) -> Base? {
         guard let data = data else { return nil }
         do {
             return try decoder.decode(Base.self, from: data)
@@ -193,7 +193,7 @@ public extension ZHCodableArrayWrapper where Element: ZHCodable {
     }
     
     // json 转模型数组
-    func deserialize(_ json: String?) -> [Element]? {
+    func deserialize(from json: String?) -> [Element]? {
         guard let data = json?.data(using: .utf8) else { return nil }
         do {
             return try decoder.decode([Element].self, from: data)
@@ -204,14 +204,14 @@ public extension ZHCodableArrayWrapper where Element: ZHCodable {
     }
     
     // array 转模型数组
-    func deserialize(_ array: [Any]?) -> [Element]? where Element: ZHCodable {
+    func deserialize(from array: [Any]?) -> [Element]? where Element: ZHCodable {
         if let _array = array as? [[String : Any]] {
             return _array.compactMap { item in
-                return Element.zh.deserialize(item)
+                return Element.zh.deserialize(from: item)
             }
         } else if let _array = array as? [String] {
             return _array.compactMap { json in
-                return Element.zh.deserialize(json)
+                return Element.zh.deserialize(from: json)
             }
         }
         return nil
@@ -220,13 +220,13 @@ public extension ZHCodableArrayWrapper where Element: ZHCodable {
     // NSArray 转模型数组
     func deserialize(_ array: NSArray?) -> [Element]? {
         guard let _array = array as? [Any] else { return nil }
-        return deserialize(_array)
+        return deserialize(from: _array)
     }
     
     func deserialize(_ array: [Data]?) -> [Element]? {
         guard let _array = array else { return nil }
         return _array.compactMap { data in
-            return Element.zh.deserialize(data)
+            return Element.zh.deserialize(from: data)
         }
     }
 }

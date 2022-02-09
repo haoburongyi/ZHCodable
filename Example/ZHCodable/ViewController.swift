@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         printLog(json)
         
         // json 转模型
-        let model = Student.zh.deserialize(json)
+        let model = Student.zh.deserialize(from: json)
         printLog(model)
         
         // 模型转 json
@@ -35,14 +35,14 @@ class ViewController: UIViewController {
         printLog(modelDict1)
         
         // 字典转模型
-        let model1 = Student.zh.deserialize(modelDict!)
+        let model1 = Student.zh.deserialize(from: modelDict!)
         printLog(model1)
         
         // json 转模型
-        let model2 = Student.zh.deserialize(modelJSON!)
+        let model2 = Student.zh.deserialize(from: modelJSON!)
         printLog(model2)
         // 字典转模型
-        let model3 = Student.zh.deserialize(modelDict1!)
+        let model3 = Student.zh.deserialize(from: modelDict1!)
         printLog(model3)
 
         // Array
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         printLog(arrayDicts)
         
         // 根据 json 转模型的数组
-        let array1 = [Student].zh.deserialize(arrayJSON!)
+        let array1 = [Student].zh.deserialize(from: arrayJSON!)
         printLog(array1)
         
         let schoolDict1 = ["name" : "北京市第一中学", "address" : "北京市大兴区"]
@@ -65,16 +65,16 @@ class ViewController: UIViewController {
         let dict1: [String : Any] = ["age" : 10, "name" : "zhangsan", "weight" : 100, "school" : schoolArray]
         let dict2: [String : Any] = ["age" : 16, "name" : "lisi", "weight" : 200, "school" : schoolArray]
         let dict3: [String : Any] = ["age" : 20, "name" : "wangwu", "weight" : 300, "school" : schoolArray]
-        let schoolJSON1 = Student.zh.deserialize(dict1)!.zh.toJSONString()!
-        let schoolJSON2 = Student.zh.deserialize(dict2)!.zh.toJSONString()!
-        let schoolJSON3 = Student.zh.deserialize(dict3)!.zh.toJSONString()!
+        let schoolJSON1 = Student.zh.deserialize(from: dict1)!.zh.toJSONString()!
+        let schoolJSON2 = Student.zh.deserialize(from: dict2)!.zh.toJSONString()!
+        let schoolJSON3 = Student.zh.deserialize(from: dict3)!.zh.toJSONString()!
         let jsonArray = [schoolJSON1, schoolJSON2, schoolJSON3] as [Any]
         let jsonDictArray = NSArray.init(array: jsonArray as [Any])
         let dictArray = [dict1, dict2, dict3]
         let dictNSArray = NSArray.init(array: dictArray)
         
         // 根据元素是 json 的 array 转模型数组
-        let array2 = [Student].zh.deserialize(jsonArray)
+        let array2 = [Student].zh.deserialize(from: jsonArray)
         printLog(array2)
         
         // 根据元素是 json 的 NSArray 转模型数组
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
         printLog(array3)
         
         // 根据元素是字典的 array 转模型数组
-        let array4 = [Student].zh.deserialize(dictArray)
+        let array4 = [Student].zh.deserialize(from: dictArray)
         printLog(array4)
         
         // 根据元素是字典的 NSArray 转模型数组
@@ -91,7 +91,7 @@ class ViewController: UIViewController {
         
         // 自定义字段
         let personDict: [String : Any] = ["first_name" : "zhang", "age" : 10]
-        let person = Person.zh.deserialize(personDict)
+        let person = Person.zh.deserialize(from: personDict)
         printLog("person.age: \(person?.age?.intValue ?? 0), person.firstName: \(person?.firstName ?? "none")")
         printLog(person?.age?.stringValue)
         printLog(person?.age?.doubleValue)
