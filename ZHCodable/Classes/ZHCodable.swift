@@ -69,7 +69,7 @@ public extension ZHCodableWrapper where Base: ZHCodable {
         do {
             return try decoder.decode(Base.self, from: data)
         } catch {
-            InternalLogger.logDebug("data 转模型失败,error:\n\(error)")
+            InternalLogger.logDebug("data 转模型(\(Base.self))失败,error:\n\(error)")
             return nil
         }
     }
@@ -174,7 +174,7 @@ public extension ZHCodableArrayWrapper where Element: ZHCodable {
             let data = try encoder.encode(base)
             return String(data: data, encoding: .utf8)
         } catch {
-            InternalLogger.logDebug("模型转 json 失败:\(error)")
+            InternalLogger.logDebug("模型(\(Base.self))转 json 失败:\(error)")
             return nil
         }
     }
@@ -196,7 +196,7 @@ public extension ZHCodableArrayWrapper where Element: ZHCodable {
         do {
             return try decoder.decode([Element].self, from: data)
         } catch {
-            InternalLogger.logDebug("json 转模型数组失败:\(error)")
+            InternalLogger.logDebug("json 转模型数组(\(Element.self))失败:\(error)")
             return nil
         }
     }
