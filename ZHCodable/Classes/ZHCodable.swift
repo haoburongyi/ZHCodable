@@ -40,8 +40,7 @@ public extension ZHCodableWrapper where Base: ZHCodable {
         do {
             return try decoder.decode(Base.self, from: data)
         } catch {
-            print(error.localizedDescription)
-            print("json 转模型失败:\(error)")
+            InternalLogger.logDebug("json 转模型(\(Base.self))失败,error:\n\(error)")
             return nil
         }
     }
@@ -58,9 +57,8 @@ public extension ZHCodableWrapper where Base: ZHCodable {
             }
             let data = try JSONSerialization.data(withJSONObject: dict, options: opt)
             return try decoder.decode(Base.self, from: data)
-            
         } catch {
-            print("字典转模型失败:\(error)")
+            InternalLogger.logDebug("字典转模型(\(Base.self))失败,error:\n\(error)")
             return nil
         }
     }
@@ -71,7 +69,7 @@ public extension ZHCodableWrapper where Base: ZHCodable {
         do {
             return try decoder.decode(Base.self, from: data)
         } catch {
-            print("字典转模型失败:\(error)")
+            InternalLogger.logDebug("data 转模型失败,error:\n\(error)")
             return nil
         }
     }
@@ -83,11 +81,11 @@ public extension ZHCodableWrapper where Base: ZHCodable {
     // 模型转字典
     func toDict() -> [String : Any]? {
         guard let base = base else {
-            print("模型转字典 base 为空")
+            InternalLogger.logDebug("模型(\(Base.self))转字典 base 为空")
             return nil
         }
         guard let json = base.zh.toJSONString() else {
-            print("模型转字典失败")
+            InternalLogger.logDebug("模型(\(Base.self))转字典失败")
             return nil
         }
         return json.zh.toDict()
@@ -96,7 +94,7 @@ public extension ZHCodableWrapper where Base: ZHCodable {
     // 模型转 json
     func toJSONString() -> String? {
         guard let base = base else {
-            print("模型转json base 为空")
+            InternalLogger.logDebug("模型(\(Base.self))转json base 为空")
             return nil
         }
         do {
@@ -109,7 +107,7 @@ public extension ZHCodableWrapper where Base: ZHCodable {
             let data = try encoder.encode(base)
             return String(data: data, encoding: .utf8)
         } catch {
-            print("模型转 json 失败:\(error)")
+            InternalLogger.logDebug("模型(\(Base.self))转 json 失败:\(error)")
             return nil
         }
     }
@@ -120,17 +118,17 @@ extension ZHCodableString: ZHCodable {}
 public extension ZHCodableWrapper where Base == ZHCodableString {
     func toDict() -> [String : Any]? {
         guard let base = base else {
-            print("String 转字典 base 为空")
+            InternalLogger.logDebug("String 转字典 base 为空")
             return nil
         }
-        guard let jsonData:Data = base.data(using: .utf8) else { print("json 转 dict 失败")
+        guard let jsonData:Data = base.data(using: .utf8) else { InternalLogger.logDebug("json 转 dict 失败")
             return nil
         }
         do {
             let dict = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
             return dict as? [String : Any] ?? ["":""]
         } catch {
-            print("json 转 dict 失败:\(error)")
+            InternalLogger.logDebug("json 转 dict 失败:\(error)")
             return nil
         }
     }
@@ -163,7 +161,7 @@ public extension ZHCodableArrayWrapper where Element: ZHCodable {
     // 数组实例转 json
     func toJSONString() -> String? {
         guard let base = base as? [Element] else {
-            print("数组转 json base 为空")
+            InternalLogger.logDebug("数组转 json base 为空")
             return nil
         }
         do {
@@ -176,7 +174,7 @@ public extension ZHCodableArrayWrapper where Element: ZHCodable {
             let data = try encoder.encode(base)
             return String(data: data, encoding: .utf8)
         } catch {
-            print("模型转 json 失败:\(error)")
+            InternalLogger.logDebug("模型转 json 失败:\(error)")
             return nil
         }
     }
@@ -184,7 +182,7 @@ public extension ZHCodableArrayWrapper where Element: ZHCodable {
     // 数组实例转 [[String : Any]]
     func toDicts() -> [[String : Any]]? {
         guard let base = base as? [Element] else {
-            print("数组转 dict 数组 base 为空")
+            InternalLogger.logDebug("数组转 dict 数组 base 为空")
             return nil
         }
         return base.compactMap {
@@ -198,7 +196,7 @@ public extension ZHCodableArrayWrapper where Element: ZHCodable {
         do {
             return try decoder.decode([Element].self, from: data)
         } catch {
-            print("json 转模型数组失败:\(error)")
+            InternalLogger.logDebug("json 转模型数组失败:\(error)")
             return nil
         }
     }
