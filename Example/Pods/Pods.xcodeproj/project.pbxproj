@@ -20,7 +20,7 @@
 		5558B876B579BC1E79BD3D2B19148329 /* UIApplication+StrictKeyWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 99A67367E018411D614EC8536A8A1C5B /* UIApplication+StrictKeyWindow.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5BE525FF6FA14B999ED2CCC0AA4FA0CF /* FBSnapshotTestCase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA6E655DC84D06359BD0ED5E36C783 /* FBSnapshotTestCase-dummy.m */; };
 		61D562F427B4299300CF1E07 /* ZHNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D562F327B4299300CF1E07 /* ZHNumber.swift */; };
-		61D5631627B4DC9700CF1E07 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5631527B4DC9700CF1E07 /* Logger.swift */; };
+		61D5631827B4DF5100CF1E07 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D5631727B4DF5100CF1E07 /* Logger.swift */; };
 		640CCE9C3A28AA3CA15510899F9140EE /* FBSnapshotTestCasePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B1DEEBF6316A84D7413645212492FF /* FBSnapshotTestCasePlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67F1963AA7C9EDB78127AD5F566A4949 /* UIImage+Diff.h in Headers */ = {isa = PBXBuildFile; fileRef = 96187BF3038121CC146335E9FF0B0AFF /* UIImage+Diff.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		6F65A51FFB8A91133562FC1E028994FC /* Pods-ZHCodable_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5B85ABBCD6DE9CFDBB9C6246DA1515 /* Pods-ZHCodable_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -92,7 +92,7 @@
 		5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FBSnapshotTestCase; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3B57F046888028BBBF7C293BB8ADBF /* Pods-ZHCodable_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-ZHCodable_Example"; path = Pods_ZHCodable_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61D562F327B4299300CF1E07 /* ZHNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZHNumber.swift; path = ZHCodable/Classes/ZHNumber.swift; sourceTree = "<group>"; };
-		61D5631527B4DC9700CF1E07 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		61D5631727B4DF5100CF1E07 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = ZHCodable/Classes/Logger.swift; sourceTree = "<group>"; };
 		656116C8FA5458F45D4707110C9530EC /* UIImage+Compare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Compare.h"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.h"; sourceTree = "<group>"; };
 		66B64CBD25A24873B3D0F3CF29D13368 /* Pods-ZHCodable_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZHCodable_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		674B1509CD9D1D530065F779030DCB92 /* Pods-ZHCodable_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZHCodable_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -220,8 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				86D0DF1C99637238255B491DE0C838FA /* ZHCodable.swift */,
-				61D5631527B4DC9700CF1E07 /* Logger.swift */,
 				61D562F327B4299300CF1E07 /* ZHNumber.swift */,
+				61D5631727B4DF5100CF1E07 /* Logger.swift */,
 				E65D26E1C508CA6EDC1F4FED7B83947F /* Pod */,
 				E1E9BDF03FFF8308CC7E643ED735E6AF /* Support Files */,
 			);
@@ -568,7 +568,7 @@
 				61D562F427B4299300CF1E07 /* ZHNumber.swift in Sources */,
 				1270669591604F001F71D5F43914C16A /* ZHCodable.swift in Sources */,
 				F33279F5053D717CDC8E02962DCA38B3 /* ZHCodable-dummy.m in Sources */,
-				61D5631627B4DC9700CF1E07 /* Logger.swift in Sources */,
+				61D5631827B4DF5100CF1E07 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
