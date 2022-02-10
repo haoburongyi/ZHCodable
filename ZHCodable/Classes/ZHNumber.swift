@@ -11,19 +11,19 @@ public struct ZHNumber: ZHCodable {
     public var stringValue: String
     public var doubleValue: Double
     
-    init(_ intValue: Int) {
+    public init(_ intValue: Int) {
         self.intValue = intValue
         self.stringValue = String(intValue)
         self.doubleValue = Double(intValue)
     }
     
-    init(_ stringValue: String) {
+    public init(_ stringValue: String) {
         self.intValue = Int(stringValue) ?? 0
         self.stringValue = stringValue
         self.doubleValue = Double(stringValue) ?? 0
     }
     
-    init(_ doubleValue: Double) {
+    public init(_ doubleValue: Double) {
         self.intValue = Int(doubleValue)
         self.stringValue = String(doubleValue)
         self.doubleValue = doubleValue
@@ -57,7 +57,6 @@ public struct ZHNumber: ZHCodable {
             self.doubleValue = Double(0)
         }
     }
-    
 }
 
 /*
@@ -67,7 +66,7 @@ public struct ZHBoolean: Codable {
     
     public var value: Bool
     
-    init(_ value: Bool) {
+    public init(_ value: Bool) {
         self.value = value
     }
     
