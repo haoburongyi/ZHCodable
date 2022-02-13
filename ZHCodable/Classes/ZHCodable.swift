@@ -216,12 +216,12 @@ public extension ZHCodableArrayWrapper where Element: ZHCodable {
     }
     
     // NSArray 转模型数组
-    func deserialize(_ array: NSArray?) -> [Element]? {
+    func deserialize(from array: NSArray?) -> [Element]? {
         guard let _array = array as? [Any] else { return nil }
         return deserialize(from: _array)
     }
     
-    func deserialize(_ array: [Data]?) -> [Element]? {
+    func deserialize(from array: [Data]?) -> [Element]? {
         guard let _array = array else { return nil }
         return _array.compactMap { data in
             return Element.zh.deserialize(from: data)
