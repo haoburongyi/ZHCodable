@@ -19,12 +19,21 @@ pod 'ZHCodable',:git =>"https://github.com/haoburongyi/ZHCodable.git"
 ## Sample Code
 
 ### Deserialization
-```struct Student: ZHCodable {
+```
+struct Student: ZHCodable {
     var name: String?
     var age: Int?
     var weight: Float? = 0
     var school: [School]? = []
 }
+
+struct School: ZHCodable {
+    var name: String? = ""
+    var address: String? = ""
+}
+
+let json = "{\"name\":\"小明\",\"school\":[{\"name\":\"市第一中学11\",\"address\":\"XX市人民中路 66 号11\"},{\"name\":\"市第一中学22\",\"address\":\"XX市人民中路 66 号22\"}],\"weight\":43.200000762939453}"
+let student = Student.zh.deserialize(from: json11)
 
 ```
 ## Author
