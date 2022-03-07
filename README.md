@@ -1,9 +1,5 @@
 # ZHCodable
 
-[![CI Status](https://img.shields.io/travis/hao/ZHCodable.svg?style=flat)](https://travis-ci.org/hao/ZHCodable)
-[![Version](https://img.shields.io/cocoapods/v/ZHCodable.svg?style=flat)](https://cocoapods.org/pods/ZHCodable)
-[![License](https://img.shields.io/cocoapods/l/ZHCodable.svg?style=flat)](https://cocoapods.org/pods/ZHCodable)
-[![Platform](https://img.shields.io/cocoapods/p/ZHCodable.svg?style=flat)](https://cocoapods.org/pods/ZHCodable)
 
 ## Example
 
@@ -33,7 +29,7 @@ struct School: ZHCodable {
 }
 
 let json = "{\"name\":\"小明\",\"school\":[{\"name\":\"市第一中学11\",\"address\":\"XX市人民中路 66 号11\"},{\"name\":\"市第一中学22\",\"address\":\"XX市人民中路 66 号22\"}],\"weight\":43.200000762939453}"
-let student = Student.zh.deserialize(from: json11)
+let student = Student.zh.deserialize(from: json)
 
 ```
 ## Author
