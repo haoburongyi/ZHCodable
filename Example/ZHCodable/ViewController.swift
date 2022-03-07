@@ -78,7 +78,7 @@ class ViewController: UIViewController {
         printLog(array2)
         
         // 根据元素是 json 的 NSArray 转模型数组
-        let array3 = [Student].zh.deserialize(jsonDictArray)
+        let array3 = [Student].zh.deserialize(from: jsonDictArray)
         printLog(array3)
         
         // 根据元素是字典的 array 转模型数组
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
         printLog(array4)
         
         // 根据元素是字典的 NSArray 转模型数组
-        let array5 = [Student].zh.deserialize(dictNSArray)
+        let array5 = [Student].zh.deserialize(from: dictNSArray)
         printLog(array5)
         
         // 自定义字段
