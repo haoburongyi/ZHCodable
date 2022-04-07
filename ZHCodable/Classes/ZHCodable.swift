@@ -24,11 +24,11 @@ public protocol ZHCodable: Codable {}
 
 public extension ZHCodable {
     
-    var zh: ZHCodableWrapper<Self> {
+    var cb: ZHCodableWrapper<Self> {
         get { return ZHCodableWrapper(self) }
     }
     
-    static var zh: ZHCodableClassWrapper<Self> {
+    static var cb: ZHCodableClassWrapper<Self> {
         get { return ZHCodableClassWrapper() }
     }
 }
@@ -86,11 +86,11 @@ public extension ZHCodableWrapper where Base: ZHCodable {
             InternalLogger.logDebug("模型(\(Base.self))转字典 base 为空")
             return nil
         }
-        guard let json = base.zh.toJSONString() else {
+        guard let json = base.cb.toJSONString() else {
             InternalLogger.logDebug("模型(\(Base.self))转字典失败")
             return nil
         }
-        return json.zh.toDict()
+        return json.cb.toDict()
     }
     
     // 模型转 json
@@ -145,12 +145,12 @@ public struct ZHCodableArrayWrapper<Base, Element> {
 }
 
 public extension ZHCodableArray where Element: ZHCodable {
-    var zh: ZHCodableArrayWrapper<Self, Element> {
+    var cb: ZHCodableArrayWrapper<Self, Element> {
         get {
             return ZHCodableArrayWrapper(self)
         }
     }
-    static var zh: ZHCodableArrayWrapper<Self, Element> {
+    static var cb: ZHCodableArrayWrapper<Self, Element> {
         get {
             return ZHCodableArrayWrapper(nil)
         }
@@ -188,7 +188,7 @@ public extension ZHCodableArrayWrapper where Element: ZHCodable {
             return nil
         }
         return base.compactMap {
-            $0.zh.toDict()
+            $0.cb.toDict()
         }
     }
     
@@ -207,11 +207,11 @@ public extension ZHCodableArrayWrapper where Element: ZHCodable {
     func deserialize(from array: [Any]?) -> [Element]? where Element: ZHCodable {
         if let _array = array as? [[String : Any]] {
             return _array.compactMap { item in
-                return Element.zh.deserialize(from: item)
+                return Element.cb.deserialize(from: item)
             }
         } else if let _array = array as? [String] {
             return _array.compactMap { json in
-                return Element.zh.deserialize(from: json)
+                return Element.cb.deserialize(from: json)
             }
         }
         return nil
@@ -226,7 +226,7 @@ public extension ZHCodableArrayWrapper where Element: ZHCodable {
     func deserialize(from array: [Data]?) -> [Element]? {
         guard let _array = array else { return nil }
         return _array.compactMap { data in
-            return Element.zh.deserialize(from: data)
+            return Element.cb.deserialize(from: data)
         }
     }
 }
