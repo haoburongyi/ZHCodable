@@ -18,6 +18,8 @@ public struct ZHCodableWrapper<Base> {
     }
 }
 
+public struct ZHCodableClassWrapper<Base> { public init() {} }
+
 public protocol ZHCodable: Codable {}
 
 public extension ZHCodable {
@@ -26,13 +28,13 @@ public extension ZHCodable {
         get { return ZHCodableWrapper(self) }
     }
     
-    static var zh: ZHCodableWrapper<Self> {
-        get { return ZHCodableWrapper(nil) }
+    static var zh: ZHCodableClassWrapper<Self> {
+        get { return ZHCodableClassWrapper() }
     }
 }
 
 // MARK: - 字典、json转模型
-public extension ZHCodableWrapper where Base: ZHCodable {
+public extension ZHCodableClassWrapper where Base: ZHCodable {
     
     // json 转模型
     func deserialize(from json: String?) -> Base? {
