@@ -29,7 +29,7 @@ struct School: ZHCodable {
 }
 
 let json = "{\"name\":\"小明\",\"school\":[{\"name\":\"市第一中学11\",\"address\":\"XX市人民中路 66 号11\"},{\"name\":\"市第一中学22\",\"address\":\"XX市人民中路 66 号22\"}],\"weight\":43.200000762939453}"
-let student = Student.zh.deserialize(from: json)
+let student = Student.codable.deserialize(from: json)
 
 ```
 ## Author
