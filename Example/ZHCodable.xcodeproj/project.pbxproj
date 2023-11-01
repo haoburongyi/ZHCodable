@@ -33,7 +33,7 @@
 /* Begin PBXFileReference section */
 		10F045E44F969659A1E5590A /* Pods-ZHCodable_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHCodable_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ZHCodable_Tests/Pods-ZHCodable_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		2C455F2C4C2741DD88625144 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		40CD056C686E4C37AFBA6C4D /* ZHCodable.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ZHCodable.podspec; path = ../ZHCodable.podspec; sourceTree = "<group>"; };
+		40CD056C686E4C37AFBA6C4D /* ZHCodable.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ZHCodable.podspec; path = ../ZHCodable.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		460AEFAF990CB2179D463FC0 /* Pods_ZHCodable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZHCodable_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C27F16532BCDF1FFD1BA181 /* Pods-ZHCodable_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHCodable_Tests.release.xcconfig"; path = "Target Support Files/Pods-ZHCodable_Tests/Pods-ZHCodable_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ZHCodable_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHCodable_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };

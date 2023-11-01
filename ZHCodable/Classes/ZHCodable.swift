@@ -5,7 +5,11 @@
 //  Created by 张淏 on 2021/11/13.
 //
 
+#if targetEnvironment(macCatalyst)
+import AppKit
+#else
 import UIKit
+#endif
 
 public typealias ZHCodableString = String
 public typealias ZHCodableArray = Array
