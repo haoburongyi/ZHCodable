@@ -29,10 +29,11 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
-  s.mac.deployment_target = '12.0'
+  s.mac.deployment_target = '10.9'
 
   s.source_files = 'ZHCodable/Classes/**/*'
   
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
   # s.resource_bundles = {
   #   'ZHCodable' => ['ZHCodable/Assets/*.png']
   # }
