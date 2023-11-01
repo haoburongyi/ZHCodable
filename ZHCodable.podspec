@@ -32,8 +32,8 @@ TODO: Add long description of the pod here.
   s.mac.deployment_target = '10.9'
 
   s.source_files = 'ZHCodable/Classes/**/*'
-  spec.ios.source_files   = 'ZHCodable/Classes/**/*'
-  spec.osx.source_files   = 'ZHCodable/Classes/**/*'
+  s.ios.source_files   = 'ZHCodable/Classes/**/*'
+  s.osx.source_files   = 'ZHCodable/Classes/**/*'
   
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
   # s.resource_bundles = {
